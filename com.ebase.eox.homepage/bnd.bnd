@@ -1,0 +1,16 @@
+-buildpath: \
+	org.eclipse.equinox.http.servlet,\
+	javax.servlet,\
+	com.ebase.eox.portal;version=latest,\
+	javax.ws.rs-api,\
+	osgi.cmpn,\
+	org.eclipse.osgi.services,\
+	org.eclipse.jetty.osgi.boot
+
+-includeresource: resources=
+Export-Package: com.ebase.eox.homepage
+Bundle-Version: 1.0.0.${tstamp}
+Import-Package: \
+	com.ebase.eox.portal;version='[1.0.0,2)',\
+	*
+X-JAX-RS-Resources: eox;com.ebase.eox.homepage.TestRestService

@@ -1,0 +1,15 @@
+-include: ${build}/dev.bnd
+
+-buildpath: \
+    ${dev_buildpath},\
+	org.apache.felix.http.jetty,\
+	com.ebase.eox.rs;version=latest,\
+	javax.ws.rs-api,\
+
+-testpath: ${junit}
+
+Private-Package: com.ebase.eox.server.internal
+Bundle-Activator: com.ebase.eox.server.internal.ServerActivator
+
+-includeresource: jettyhome=resources/jettyhome
+Bundle-Version: 1.0.0.${tstamp}

@@ -1,0 +1,10 @@
+-include: ${build}/dev.bnd
+
+-buildpath: \
+    ${dev_buildpath},\
+	javax.ws.rs-api,\
+	com.ebase.eox.rs;version=latest,\
+	javax.servlet-api
+Export-Package: com.ebase.eox.services.health
+Private-Package: com.ebase.eox.services.health.internal
+Bundle-Version: 1.0.0.${tstamp}

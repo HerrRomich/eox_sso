@@ -1,0 +1,17 @@
+[
+	{
+		"path": "/content/to",
+		"pattern": "/to/*",
+		"contextName": "com.ebase.eox.appcontent1"
+	},
+	{
+		"path": "/content/from",
+		"pattern": "/from/*",
+    "contextName": "com.ebase.eox.appcontent2"
+	},
+	{
+		"path": "/content/apa",
+		"pattern": "/apa/*",
+    "contextName": "com.ebase.eox.appcontent3"
+	}
+]

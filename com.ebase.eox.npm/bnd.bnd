@@ -1,0 +1,10 @@
+-includeresource: \
+    content=content
+
+Bundle-Version: 1.0.0
+
+Bundle-Description: Static Resources for Angular etc.
+
+Export-Package: com.ebase.eox.npm;version=1.0.0
+
+-buildpath: osgi.cmpn;version=6.0

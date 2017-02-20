@@ -1,0 +1,4 @@
+dev_buildpath =\
+    org.eclipse.osgi,\
+    osgi.cmpn
+    

@@ -1,0 +1,47 @@
+{
+  "name": "com.ebase.eox",
+  "version": "1.0.0",
+  "description": "EOX",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/common": "^2.4.7",
+    "@angular/compiler": "^2.4.7",
+    "@angular/core": "^2.4.7",
+    "@angular/http": "^2.4.7",
+    "@angular/material": "^2.0.0-beta.1",
+    "@angular/platform-browser": "^2.4.7",
+    "@angular/platform-browser-dynamic": "^2.4.7",
+    "@ngx-translate/core": "^6.0.0",
+    "@ngx-translate/http-loader": "0.0.2",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.3",
+    "systemjs": "^0.20.7",
+    "zone.js": "^0.7.6"
+  },
+  "devDependencies": {
+    "fs-extra": "^2.0.0",
+    "gaze": "^1.1.2",
+    "gulp": "^3.9.1",
+    "gulp-filter": "^5.0.0",
+    "gulp-foreach": "^0.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-typescript": "^3.1.4",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "multimatch": "^2.1.0",
+    "through2": "^2.0.3",
+    "typescript": "^2.1.5",
+    "vinyl-fs": "^2.4.4",
+    "yargs": "^6.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eox",
+    "ebase"
+  ],
+  "author": "Roman Smushkevich",
+  "license": "ISC"
+}

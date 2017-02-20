@@ -1,0 +1,13 @@
+-buildpath: \
+	javax.ws.rs-api,\
+	org.apache.cxf.cxf-rt-frontend-jaxrs,\
+	org.apache.cxf.cxf-core,\
+	javax.servlet-api,\
+	org.apache.cxf.cxf-rt-transports-http,\
+	osgi.cmpn,\
+	org.eclipse.osgi,\
+	org.apache.felix.http.api
+Export-Package: com.ebase.eox.rs
+Bundle-Version: 1.0.0.${tstamp}
+Service-Component: *
+-testpath: ${junit}

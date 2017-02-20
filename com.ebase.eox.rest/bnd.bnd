@@ -1,0 +1,13 @@
+-buildpath: \
+	junit:junit,\
+	org.hamcrest:hamcrest-core,\
+	org.objenesis,\
+	org.eclipse.osgi,\
+	org.mockito.mockito-core,\
+	net.bytebuddy.byte-buddy,\
+	org.apache.commons.lang3,\
+	org.apache.felix.configadmin;version=1.8,\
+	osgi.cmpn;version=6.0
+Private-Package: com.ebase.eox.rest.internal
+Bundle-Activator: com.ebase.eox.rest.internal.Activator
+Bundle-Version: 1.0.0.${tstamp}

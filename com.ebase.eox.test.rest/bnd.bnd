@@ -1,0 +1,8 @@
+-buildpath: javax.ws.rs-api;version=2.0
+-baseline: *
+javac.source: 1.8
+javac.target: 1.8
+
+Bundle-Version: 1.0.0.${tstamp}
+Export-Package: com.ebase.eox.test.rest
+

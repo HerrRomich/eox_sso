@@ -1,0 +1,11 @@
+/cache/
+/generated
+/local
+/logs
+/release
+/src
+/templates
+/apache_cxf
+/bin
+/cache
+/equinox

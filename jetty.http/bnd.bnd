@@ -1,0 +1,11 @@
+-buildpath: \
+	org.eclipse.jetty.util;version=9.4,\
+	org.eclipse.jetty.io;version=9.4
+Bundle-Version: 9.4.1
+Import-Package: *
+Export-Package: \
+	org.eclipse.jetty.http;version="9.4.1";uses:="org.eclipse.jetty.io,org.eclipse.jetty.util,org.eclipse.jetty.util.component,org.eclipse.jetty.util.log,org.eclipse.jetty.util.resource",\
+	org.eclipse.jetty.http.pathmap;version="9.4.1";uses:="org.eclipse.jetty.util.annotation,org.eclipse.jetty.util.component",\
+	org.eclipse.jetty.http2.hpack;version="9.4.1";uses:="org.eclipse.jetty.http,org.eclipse.jetty.util.log"
+	
+Include-Resource: /=resources

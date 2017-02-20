@@ -1,0 +1,15 @@
+-include: ${build}/dev.bnd
+
+-buildpath: \
+	${dev_buildpath},\
+	org.apache.cxf.cxf-rt-frontend-jaxws,\
+	org.apache.cxf.cxf-rt-transports-http,\
+	org.apache.cxf.cxf-core,\
+	javax.servlet-api,\
+	org.apache.felix.http.api,\
+	org.apache.servicemix.bundles.wsdl4j
+
+Bundle-Version: 1.0.0.${tstamp}
+Export-Package: com.ebase.eox.ws
+Private-Package: com.ebase.eox.ws.internal
+Bundle-Activator: com.ebase.eox.ws.internal.Activator

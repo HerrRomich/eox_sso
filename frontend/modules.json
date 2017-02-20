@@ -1,0 +1,53 @@
+{
+    "aliases": {
+        "@npm": "node_modules",
+        "@app": "app"
+    },
+    "modules": [
+        {
+            "name": "npm",
+            "path": "../com.ebase.eox.npm/content/",
+            "map": {
+                "@angular/common": "@npm/@angular/common/bundles/common.umd.js",
+                "@angular/core": "@npm/@angular/core/bundles/core.umd.js",
+                "@angular/compiler": "@npm/@angular/compiler/bundles/compiler.umd.js",
+                "@angular/http": "@npm/@angular/http/bundles/http.umd.js",
+                "@angular/material": "@npm/@angular/material/bundles/material.umd.js",
+                "@angular/platform-browser": "@npm/@angular/platform-browser/bundles/platform-browser.umd.js",
+                "@angular/platform-browser-dynamic": "@npm/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
+                "core-js/client": "@npm/core-js/client/shim.min.js",
+                "rxjs": "@npm/rxjs/*.js",
+                "rxjs/util": "@npm/rxjs/util/*.js",
+                "rxjs/symbol": "@npm/rxjs/symbol/*.js",
+                "rxjs/operator": "@npm/rxjs/operator/*.js",
+                "rxjs/observable": "@npm/rxjs/observable/*.js",
+                "rxjs/add/operator": "@npm/rxjs/add/operator/*.js",
+                "rxjs/add/observable": "@npm/rxjs/add/observable/*.js",
+                "systemjs": "@npm/systemjs/dist/system.src.js",
+                "zone.js": "@npm/zone.js/dist/zone.js",
+                "@ngx-translate/core": "@npm/@ngx-translate/core/bundles/core.umd.js",
+                "@ngx-translate/http-loader": "@npm/@ngx-translate/http-loader/bundles/http-loader.umd.js"
+            }
+        },
+        {
+            "name": "app",
+            "path": "../com.ebase.eox.portal/content/",
+            "map": {
+                ".": [
+                    "index.html",
+                    "systemjs.config.js"
+                ],
+                "app": "@app/*.*"
+            }
+        },
+        {
+            "name": "portal.shared",
+            "path": "../com.ebase.eox.portal.shared/content/",
+            "map": {
+                ".": [
+                    "@app/shared/*.*"
+                ]
+            }
+        }
+    ]
+}

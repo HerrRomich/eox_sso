@@ -1,0 +1,9 @@
+-buildpath: \
+	${dev_buildpath},\
+	com.ebase.eox.rs;version=latest,\
+	javax.ws.rs-api,\
+	org.apache.felix.scr,\
+	javax.servlet-api
+
+-testpath: ${junit}
+Service-Component: *

@@ -1,0 +1,70 @@
+# Configure Repositories
+-plugin.9.Maven: \
+    aQute.bnd.deployer.repository.wrapper.Plugin; \
+        location = "${build}/cache/wrapper"; \
+        reindex = true, \
+    aQute.bnd.repository.maven.provider.MavenBndRepository; \
+        releaseUrl=https://repo.maven.apache.org/maven2/; \
+        index=${build}/maven.maven; \
+        name="Maven"
+     
+-plugin.2.Local: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Local; \
+		pretty = true; \
+		local = ${build}/local
+
+-plugin.3.Templates: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Templates; \
+		pretty = true; \
+		local = ${build}/templates
+
+-plugin.4.Release: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Release; \
+		pretty = true; \
+		local = ${build}/release
+
+-plugin.5.Equinox: \
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+        name = Equinox; \
+        pretty = true; \
+        local = ${build}/equinox
+     
+#-plugin.7.Glassfish: \
+#    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+#        name = Glassfish; \
+#        pretty = true; \
+#        local = ${build}/glassfish
+     
+-plugin.8.Apache_CXF: \
+    aQute.bnd.deployer.repository.LocalIndexedRepo; \
+        name = Apache CXF; \
+        pretty = true; \
+        local = ${build}/apache_cxf
+     
+-releaserepo: Release
+-baselinerepo: Release
+
+-connection-settings: ${build}/settings.xml
+
+# JUnit
+junit: junit:junit,\
+    org.objenesis,\
+    org.hamcrest:hamcrest-core,\
+    net.bytebuddy.byte-buddy,\
+    org.mockito.mockito-core
+    
+-include: ${build}/dev.bnd
+
+node_modules: ${workspace}/node_modules
+
+
+escapeToJs: $<subst;$<1>;';\\\\'>
+convertToJs: '$<subst;$<escapeToJs;$<1>>;\u000A;'+\u000A'>'
+getJsonValue: $<js;var value = JSON.parse($<convertToJs;$<1>>);$<2>>
+getNodeModuleVersion: $<getJsonValue;$<cat;$<node_modules>/$<1>/package.json>;value.version>
+
+getNodeModuleMain: $<getJsonValue;$<cat;$<node_modules>/$<1>/package.json>;value.main.startsWith('./') ? value.main.substr(2) : value.main>
+
