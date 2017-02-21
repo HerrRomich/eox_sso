@@ -3,5 +3,5 @@ Import-Package: *
 
 -testpath: ${junit}
 -includeresource: \
-    content=content,\
+    WEB-CONTENT=WEB-CONTENT,\
     OSGI-INF=OSGI-INF

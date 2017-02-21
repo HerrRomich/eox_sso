@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "fs-extra": "^2.0.0",
-    "gaze": "^1.1.2",
+    "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "gulp-filter": "^5.0.0",
     "gulp-foreach": "^0.1.0",

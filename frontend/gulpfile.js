@@ -10,8 +10,10 @@ var path = require("path");
 var foreach = require("gulp-foreach");
 var watch = require("gulp-watch");
 var sourcemaps = require("gulp-sourcemaps");
+var glob = require("glob");
 
-const contentDirName = 'content';
+const contentDirName = 'WEB-CONTENT';
+const webResourceDescFileName = 'OSGI-INF/web-resources.json';
 
 var modulesCfg = fse.readJsonSync("./modules.json");
 
@@ -121,13 +123,40 @@ function getBuildTask(pattern) {
 // Deletes whole content of modules
 gulp.task('clear', function () {
     util.log("Task 'clear': started...");
-    var modules = modulesCfg.modules;
-    modules.forEach(function (module) {
-        var contentPath = path.resolve(module.path, contentDirName);
-        util.log("deleting content: " + contentPath);
-        fse.emptyDirSync(contentPath);
+    var files = glob.sync('../com.ebase.eox.*/' + contentDirName);
+    files.forEach(function (file) {
+        util.log("emptying content: " + file);
+        fse.emptyDirSync(file);
+    });
+    var files = glob.sync('../com.ebase.eox.*/' + webResourceDescFileName);
+    files.forEach(function (file) {
+        util.log("deleting web resources description: " + file);
+        fse.unlinkSync(file);
     });
     util.log("Task 'clear': done.");
+});
+
+gulp.task('web-resources', function () {
+    util.log("Task 'web-resources': started...");
+    modulesCfg.modules.forEach(function (module) {
+        var modulePath = replaceAlias(module.path);
+        var webResourceDescriptions = [];
+        module.content.forEach(function (contentElement) {
+            var webResourcePath = path.posix.resolve("/", contentDirName, contentElement.path);
+            path.posix
+            var webResourceDescription = {
+                "path" : webResourcePath,
+                "pattern": contentElement.pattern,
+                "contextName": contentElement.contextName
+            };
+            webResourceDescriptions.push(webResourceDescription);
+        });
+        var webResourceDescFilePath = path.resolve(modulePath, webResourceDescFileName);
+        util.log('creating web resource description: ' + webResourceDescFilePath);
+        fse.mkdirpSync(path.dirname(webResourceDescFilePath));
+        fse.writeFileSync(webResourceDescFilePath, JSON.stringify(webResourceDescriptions));
+    })
+    util.log("Task 'web-resources': done.");
 });
 
 gulp.task('build', function () {
@@ -135,7 +164,7 @@ gulp.task('build', function () {
     return getBuildTask(flattenedPattern);
 })
 
-gulp.task('development', ['clear'], function () {
+gulp.task('development', ['clear', 'web-resources'], function () {
     const flattenedPatterns = flattenMaps(moduleMaps);
     console.log(JSON.stringify(flattenedPatterns));
     return watch(flattenedPatterns, { ignoreInitial: false, readDelay: 0 })

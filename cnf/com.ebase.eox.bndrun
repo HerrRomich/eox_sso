@@ -15,7 +15,6 @@
 	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.osgi.boot)(version>=9.4.1))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.http.jetty)(version>=1.0.0))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.portal)(version>=1.0.0))',\
-	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.npm)(version>=1.0.0))',\
 	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.shell)(version>=0.10.0))',\
 	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.console)(version>=1.1.200))',\
 	osgi.identity;filter:='(&(osgi.identity=slf4j.api)(version>=1.7.21))',\
@@ -30,7 +29,8 @@
 	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.webconsole)(version>=4.2.18))',\
 	osgi.identity;filter:='(osgi.identity=com.ebase.eox.portal.shared)',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.web)(version>=1.0.0.201702171335))',\
-	osgi.identity;filter:='(osgi.identity=com.ebase.eox.app)'
+	osgi.identity;filter:='(osgi.identity=com.ebase.eox.app)',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.nodemodules)(version>=1.0.0))'
     
 -runbundles: \
 	com.ebase.eox.http.jetty;version=snapshot,\
@@ -66,9 +66,9 @@
 	org.eclipse.jetty.webapp;version='[9.4.1,9.4.2)',\
 	org.eclipse.jetty.xml;version='[9.4.1,9.4.2)',\
 	org.eclipse.osgi.services;version='[3.5.100,3.5.101)',\
-	com.ebase.eox.npm;version=snapshot,\
 	com.ebase.eox.portal.shared;version=snapshot,\
 	com.ebase.eox.web;version=snapshot,\
 	jackson-core-asl;version='[1.9.13,1.9.14)',\
 	jackson-mapper-asl;version='[1.9.13,1.9.14)',\
-	com.ebase.eox.app;version=snapshot
+	com.ebase.eox.app;version=snapshot,\
+	com.ebase.eox.nodemodules;version=snapshot

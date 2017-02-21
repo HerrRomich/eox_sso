@@ -5,6 +5,5 @@ RemoteSystemsTempFiles
 com.ebase.eox.*/generated
 com.ebase.eox.*/bin
 com.ebase.eox.*/bin_test
-com.ebase.eox.*/content
+com.ebase.eox.*/WEB-CONTENT
 com.ebase.eox.*/OSGI-INF/web-resources.json
-/com.ebase.eox.app/OSGI-INF/web-resources.json

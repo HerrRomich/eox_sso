@@ -9,7 +9,7 @@
             "path": "../com.ebase.eox.nodemodules",
             "content": [
                 {
-                    "pattern": "/node-modules/*",
+                    "pattern": "/node_modules/*",
                     "contextName": "com.ebase.eox.appcontent",
                     "path": ".",
                     "map": {
@@ -41,7 +41,7 @@
             "path": "../com.ebase.eox.app",
             "content": [
                 {
-                    "pattern": "/node-modules/*",
+                    "pattern": "/*",
                     "contextName": "com.ebase.eox.appcontent",
                     "path": ".",
                     "map": {
@@ -50,6 +50,20 @@
                             "systemjs.config.js"
                         ],
                         "app": "@app/*.*"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "portal.shared",
+            "path": "../com.ebase.eox.portal.shared",
+            "content": [
+                {
+                    "pattern": "/app/shared/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/shared/*.*"
                     }
                 }
             ]
