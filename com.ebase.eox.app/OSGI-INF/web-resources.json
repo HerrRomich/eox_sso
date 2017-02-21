@@ -1,7 +1,0 @@
-[
-	{
-		"path": "/content",
-		"pattern": "/*",
-		"contextName": "com.ebase.eox.appcontent"
-	}
-]
