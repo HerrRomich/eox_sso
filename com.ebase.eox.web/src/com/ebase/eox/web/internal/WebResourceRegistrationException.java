@@ -1,4 +1,4 @@
-package com.ebase.eox.web;
+package com.ebase.eox.web.internal;
 
 public class WebResourceRegistrationException extends Exception {
 

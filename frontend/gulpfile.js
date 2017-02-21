@@ -11,6 +11,8 @@ var foreach = require("gulp-foreach");
 var watch = require("gulp-watch");
 var sourcemaps = require("gulp-sourcemaps");
 
+const contentDirName = 'content';
+
 var modulesCfg = fse.readJsonSync("./modules.json");
 
 var aliases = modulesCfg.aliases;
@@ -21,13 +23,15 @@ function getModuleMaps() {
     var moduleMaps = [];
     modulesCfg.modules.forEach(function (module) {
         var modulePath = replaceAlias(module.path);
-        var moduleMap = module.map;
-        for (var mapPath in moduleMap) {
-            var moduleMapElement = moduleMap[mapPath];
-            var normalizedModuleMapElement = replaceAliases(moduleMapElement);
-            var destPath = modulePath + replaceAlias(mapPath);
-            moduleMaps.push({ "destPath": destPath, "pattern": normalizedModuleMapElement });
-        }
+        module.content.forEach(function (contentElement) {
+            var contentElementMap = contentElement.map;
+            for (var mapPath in contentElementMap) {
+                var mapValue = contentElementMap[mapPath];
+                var normalizedMapValue = replaceAliases(mapValue);
+                var destPath = path.resolve(modulePath, contentDirName, replaceAlias(mapPath));
+                moduleMaps.push({ "destPath": destPath, "pattern": normalizedMapValue });
+            }
+        });
     });
     return moduleMaps;
 }
@@ -60,10 +64,10 @@ function replaceAliases(aliasedPaths) {
 }
 
 function replaceAlias(aliasedPath) {
-    var matched = aliasedPath.match(/@[^/]*/);
+    var matched = aliasedPath.match(/!?(@[^\/]*)/);
     if (!matched)
         return aliasedPath;
-    var matchedAlias = matched[0];
+    var matchedAlias = matched[1];
     if (!matchedAlias)
         return aliasedPath;
     var substitution = aliases[matchedAlias];
@@ -95,9 +99,9 @@ function pipeBuildTask(stream, file) {
     console.log('file: ' + baseName);
     if (ext === '.ts') {
         result = result
-        .pipe(sourcemaps.init())
-        .pipe(tsProject())
-        .pipe(sourcemaps.write());
+            .pipe(sourcemaps.init())
+            .pipe(tsProject())
+            .pipe(sourcemaps.write());
     }
     if (ext === '.scss') {
         result = result.pipe(sass());
@@ -114,13 +118,14 @@ function getBuildTask(pattern) {
     return result;
 }
 
-
+// Deletes whole content of modules
 gulp.task('clear', function () {
     util.log("Task 'clear': started...");
     var modules = modulesCfg.modules;
     modules.forEach(function (module) {
-        util.log("deleting " + module.path);
-        fse.emptyDirSync(module.path);
+        var contentPath = path.resolve(module.path, contentDirName);
+        util.log("deleting content: " + contentPath);
+        fse.emptyDirSync(contentPath);
     });
     util.log("Task 'clear': done.");
 });
@@ -132,6 +137,7 @@ gulp.task('build', function () {
 
 gulp.task('development', ['clear'], function () {
     const flattenedPatterns = flattenMaps(moduleMaps);
+    console.log(JSON.stringify(flattenedPatterns));
     return watch(flattenedPatterns, { ignoreInitial: false, readDelay: 0 })
         .pipe(foreach(function (stream, file) {
             if (file.event === 'unlink') {

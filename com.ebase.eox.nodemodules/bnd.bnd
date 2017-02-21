@@ -1,5 +1,6 @@
 -includeresource: \
-    content=content
+    content=content,\
+    OSGI-INF=OSGI-INF
 
 Bundle-Version: 1.0.0
 

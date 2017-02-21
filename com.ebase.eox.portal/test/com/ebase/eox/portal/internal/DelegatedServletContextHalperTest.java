@@ -1,4 +1,4 @@
-package com.ebase.eox.portal;
+package com.ebase.eox.portal.internal;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;

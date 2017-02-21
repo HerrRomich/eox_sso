@@ -29,7 +29,8 @@
 	osgi.identity;filter:='(osgi.identity=jetty.http)',\
 	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.webconsole)(version>=4.2.18))',\
 	osgi.identity;filter:='(osgi.identity=com.ebase.eox.portal.shared)',\
-	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.web)(version>=1.0.0.201702171335))'
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.web)(version>=1.0.0.201702171335))',\
+	osgi.identity;filter:='(osgi.identity=com.ebase.eox.app)'
     
 -runbundles: \
 	com.ebase.eox.http.jetty;version=snapshot,\
@@ -69,4 +70,5 @@
 	com.ebase.eox.portal.shared;version=snapshot,\
 	com.ebase.eox.web;version=snapshot,\
 	jackson-core-asl;version='[1.9.13,1.9.14)',\
-	jackson-mapper-asl;version='[1.9.13,1.9.14)'
+	jackson-mapper-asl;version='[1.9.13,1.9.14)',\
+	com.ebase.eox.app;version=snapshot

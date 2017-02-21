@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.0.${tstamp}
+Import-Package: *
+
+-testpath: ${junit}
+-includeresource: \
+    content=content,\
+    OSGI-INF=OSGI-INF

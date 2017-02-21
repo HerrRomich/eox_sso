@@ -7,8 +7,9 @@ Import-Package: *
 	osgi.cmpn;version=6.0,\
 	javax.servlet-api;version=3.1,\
 	org.eclipse.osgi;version=3.11
-Export-Package: com.ebase.eox.portal
 
 -includeresource: \
-    content=content,\
     OSGI-INF=OSGI-INF
+
+Service-Component: OSGI-INF/PortalContentContextHelper.xml
+Private-Package: com.ebase.eox.portal.internal

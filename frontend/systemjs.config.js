@@ -2,11 +2,10 @@ SystemJS
     .config({
 paths: {
             'npm:': '/node_modules/',
-            'app:': '/portal/app/'
+            'app:': '/app/'
         },
         map: {
             app: 'app',
-
             '@angular/core': 'npm:@angular/core/core.umd.js',
             '@angular/common': 'npm:@angular/common/common.umd.js',
             '@angular/compiler': 'npm:@angular/compiler/compiler.umd.js',

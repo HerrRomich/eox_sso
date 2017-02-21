@@ -1,0 +1,7 @@
+[
+	{
+		"path": "/content",
+		"pattern": "/node_modules/*",
+		"contextName": "com.ebase.eox.appcontent"
+	}
+]

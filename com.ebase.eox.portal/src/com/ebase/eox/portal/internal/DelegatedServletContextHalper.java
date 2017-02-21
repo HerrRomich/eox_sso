@@ -1,4 +1,4 @@
-package com.ebase.eox.portal;
+package com.ebase.eox.portal.internal;
 
 import java.net.URL;
 import java.util.Set;
@@ -8,7 +8,7 @@ import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.http.context.ServletContextHelper;
 
-abstract class DelegatedServletContextHalper extends ServletContextHelper {
+public class DelegatedServletContextHalper extends ServletContextHelper {
 
   protected ServletContextHelper servletContextHelperDelegate;
 
