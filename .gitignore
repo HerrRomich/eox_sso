@@ -1,6 +1,7 @@
 .gradle/
 .metadata
 .recommenders
+node_modules
 RemoteSystemsTempFiles
 com.ebase.eox.*/generated
 com.ebase.eox.*/bin

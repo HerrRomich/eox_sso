@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<component name="PortalContentContextHelper">
-  <implementation class="com.ebase.eox.portal.internal.DelegatedServletContextHalper"/>
-  <service servicefactory="true">
-    <provide interface="org.osgi.service.http.context.ServletContextHelper"/>
-  </service>
-  <property name="osgi.http.whiteboard.context.name" type="String" value="com.ebase.eox.appcontent"/>
-  <property name="osgi.http.whiteboard.context.path" type="String" value="/"/>
-</component>

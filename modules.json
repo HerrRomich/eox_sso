@@ -1,0 +1,87 @@
+{
+    "aliases": {
+        "@npm": "node_modules",
+        "@app": "src/app"
+    },
+    "modules": [
+        {
+            "name": "nodemodules",
+            "path": "com.ebase.eox.presentation.web.nodemodules",
+            "content": [
+                {
+                    "pattern": "/node_modules/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        "@angular/common": "@npm/@angular/common/bundles/common.umd.js",
+                        "@angular/core": "@npm/@angular/core/bundles/core.umd.js",
+                        "@angular/compiler": "@npm/@angular/compiler/bundles/compiler.umd.js",
+                        "@angular/http": "@npm/@angular/http/bundles/http.umd.js",
+                        "@angular/router": "@npm/@angular/router/bundles/router.umd.js",
+                        "@angular/material": "@npm/@angular/material/bundles/material.umd.js",
+                        "@angular/platform-browser": "@npm/@angular/platform-browser/bundles/platform-browser.umd.js",
+                        "@angular/platform-browser-dynamic": "@npm/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
+                        "core-js/client": "@npm/core-js/client/shim.min.js",
+                        "rxjs": [
+                            "@npm/rxjs/**/*.js",
+                            "!@npm/rxjs/bundles/**/*.js",
+                            "!@npm/rxjs/node_modules/**/*.js",
+                            "!@npm/rxjs/src/**/*.js",
+                            "!@npm/rxjs/testing/**/*.js"
+                        ],
+                        "systemjs": "@npm/systemjs/dist/system.src.js",
+                        "zone.js": "@npm/zone.js/dist/zone.js",
+                        "@ngx-translate/core": "@npm/@ngx-translate/core/bundles/core.umd.js",
+                        "@ngx-translate/http-loader": "@npm/@ngx-translate/http-loader/bundles/http-loader.umd.js"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "app",
+            "path": "com.ebase.eox.presentation.web.app",
+            "content": [
+                {
+                    "pattern": "/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": [
+                            "src/index.html",
+                            "src/systemjs.config.js"
+                        ],
+                        "app": "@app/*.*"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "app.shared",
+            "path": "com.ebase.eox.presentation.web.app.shared",
+            "content": [
+                {
+                    "pattern": "/app/shared/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/shared/*.*"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "app.login",
+            "path": "com.ebase.eox.presentation.web.app.login",
+            "content": [
+                {
+                    "pattern": "/app/login/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/login/*.*"
+                    }
+                }
+            ]
+        }
+    ]
+}
