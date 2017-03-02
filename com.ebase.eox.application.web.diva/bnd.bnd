@@ -1,0 +1,10 @@
+Bundle-Version: 1.0.0.${tstamp}
+Bundle-Name: com.ebase.eox.application.web.diva
+
+-testpath: ${junit}
+
+-buildpath: \
+	org.eclipse.osgi;version=3.11,\
+	osgi.cmpn;version=6.0,\
+	com.ebase.eox.application.web;version=latest
+Private-Package: com.ebase.eox.application.web.diva.internal

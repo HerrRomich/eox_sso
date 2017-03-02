@@ -30,7 +30,10 @@
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app)(version>=1.0.0.201702230834))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.nodemodules)(version>=1.0.0.201702230836))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.shared)(version>=1.0.0.201702230833))',\
-	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login)(version>=1.0.0.201702230834))'
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login)(version>=1.0.0.201702230834))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login.admin)(version>=1.0.0.201702240919))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.diva)(version>=1.0.0.201702241611))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.components)(version>=1.0.0.201702280747))'
     
 -runbundles: \
 	jetty.http;version=snapshot,\
@@ -71,4 +74,9 @@
 	com.ebase.eox.presentation.web.app;version=snapshot,\
 	com.ebase.eox.presentation.web.app.shared;version=snapshot,\
 	com.ebase.eox.presentation.web.nodemodules;version=snapshot,\
-	com.ebase.eox.presentation.web.app.login;version=snapshot
+	com.ebase.eox.presentation.web.app.login;version=snapshot,\
+	com.ebase.eox.presentation.web.app.login.admin;version=snapshot,\
+	com.ebase.eox.presentation.web.app.diva;version=snapshot,\
+	com.ebase.eox.presentation.web.app.components;version=snapshot,\
+	com.ebase.eox.infrastructure.utils;version=snapshot,\
+	com.google.guava;version='[21.0.0,21.0.1)'

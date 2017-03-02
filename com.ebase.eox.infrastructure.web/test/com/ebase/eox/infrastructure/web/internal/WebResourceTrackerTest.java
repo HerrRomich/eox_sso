@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -16,7 +15,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Dictionary;
 import java.util.Hashtable;
@@ -28,7 +26,6 @@ import java.util.stream.IntStream;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.osgi.framework.Bundle;
@@ -39,8 +36,6 @@ import org.osgi.service.log.LogService;
 import org.osgi.util.tracker.BundleTracker;
 
 import com.ebase.eox.infrastructure.web.WebResource;
-import com.ebase.eox.infrastructure.web.internal.WebResourceRegistrationException;
-import com.ebase.eox.infrastructure.web.internal.WebResourceTracker;
 
 public class WebResourceTrackerTest {
 
@@ -88,43 +83,6 @@ public class WebResourceTrackerTest {
     };
     webResourceRegistrationFile = new URL("foo", "bar", 99, "/foobar", stubStreamHandler);
   }
-
-  /*
-   * @Test public void shouldCreateBundleTrackerOnStart() throws Exception {
-   * webResourceBundleTrackerUnderTest.activate(mockedContext);
-   * 
-   * BundleTracker<List<ServiceRegistration<WebResource>>> actualBundleTracker =
-   * webResourceBundleTrackerUnderTest.bundleTracker; assertThat(actualBundleTracker,
-   * equalTo(mockedBundleTracker)); }
-   * 
-   * @Test public void shouldStartBundleTrackerOnStart() throws Exception {
-   * webResourceBundleTrackerUnderTest.activate(mockedContext);
-   * 
-   * verify(mockedBundleTracker).open(); }
-   * 
-   * @Test public void shouldDoNothingOnStopIfNoBundleTracker() throws Exception {
-   * webResourceBundleTrackerUnderTest.bundleTracker = null;
-   * 
-   * webResourceBundleTrackerUnderTest.deactivate();
-   * 
-   * verify(mockedBundleTracker, never()).close(); }
-   * 
-   * @Test public void shouldCloseBundleTrackerOnStop() throws Exception {
-   * webResourceBundleTrackerUnderTest.bundleTracker = mockedBundleTracker;
-   * 
-   * webResourceBundleTrackerUnderTest.deactivate();
-   * 
-   * verify(mockedBundleTracker).close(); }
-   * 
-   * @Test public void shouldClearBundleTrackerOnStop() throws Exception {
-   * webResourceBundleTrackerUnderTest.bundleTracker = mockedBundleTracker;
-   * 
-   * webResourceBundleTrackerUnderTest.deactivate();
-   * 
-   * BundleTracker<List<ServiceRegistration<WebResource>>> actualBundleTracker =
-   * webResourceBundleTrackerUnderTest.bundleTracker; assertThat(actualBundleTracker, nullValue());
-   * }
-   */
 
   @Test
   public void shoudReturnNullOnRegisterResourcesWhenNoResourceList() {

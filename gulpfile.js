@@ -122,12 +122,12 @@ function getBuildTask(pattern) {
 // Deletes whole content of modules
 gulp.task('clear', function () {
     util.log("Task 'clear': started...");
-    var files = glob.sync('../com.ebase.eox.*/' + contentDirName);
+    var files = glob.sync('com.ebase.eox.*/' + contentDirName);
     files.forEach(function (file) {
         util.log("emptying content: " + file);
         fse.emptyDirSync(file);
     });
-    var files = glob.sync('../com.ebase.eox.*/' + webResourceDescFileName);
+    var files = glob.sync('com.ebase.eox.*/' + webResourceDescFileName);
     files.forEach(function (file) {
         util.log("deleting web resources description: " + file);
         fse.unlinkSync(file);

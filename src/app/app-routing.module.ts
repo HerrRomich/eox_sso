@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginModule } from 'app/login/login.module'
+import { RouterModule, Router, Routes } from '@angular/router';
+import { Http, Response } from '@angular/http'
+
+import { RoutesLoaderService } from 'app/routes-loader.service'
+
 import { LoginComponent } from 'app/login/login.component'
 
-const eoxRoutes: Routes = [{
-    path: '',
-    component: LoginComponent
-}];
+import { AdminLoginModule } from 'app/login/admin/admin-login.module'
+import { AdminLoginComponent } from 'app/login/admin/admin-login.component'
+
+const initialRoutes: Routes = [{
+    path: '**',
+    canActivate: [RoutesLoaderService],
+    children: []
+}]
 
 @NgModule({
-    imports: [RouterModule.forRoot(eoxRoutes), LoginModule],
+    imports: [RouterModule.forRoot(initialRoutes, { enableTracing: true })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

@@ -1,0 +1,6 @@
+[
+    {
+        "path": "diva",
+        "loadChildren": "/app/diva/diva.module#DivaModule"
+    }
+]

@@ -42,6 +42,7 @@ org.apache.felix:org.apache.felix.webconsole:4.2.18
 commons-fileupload:commons-fileupload:1.3.2
 org.apache.servicemix.bundles:org.apache.servicemix.bundles.commons-io:1.4_3
 org.apache.geronimo.bundles:json:20090211_1
+com.google.guava:guava:21.0
 
 org.ow2.asm:asm:5.1
 org.apache.aries.spifly:org.apache.aries.spifly.dynamic.bundle:1.0.8

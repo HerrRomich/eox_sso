@@ -15,22 +15,26 @@
                     "map": {
                         "@angular/common": "@npm/@angular/common/bundles/common.umd.js",
                         "@angular/core": "@npm/@angular/core/bundles/core.umd.js",
+                        "@angular/forms": "@npm/@angular/forms/bundles/forms.umd.js",
                         "@angular/compiler": "@npm/@angular/compiler/bundles/compiler.umd.js",
                         "@angular/http": "@npm/@angular/http/bundles/http.umd.js",
                         "@angular/router": "@npm/@angular/router/bundles/router.umd.js",
                         "@angular/material": "@npm/@angular/material/bundles/material.umd.js",
+                        "@angular/flex-layout" : "@npm/@angular/flex-layout/bundles/flex-layout.umd.js",
                         "@angular/platform-browser": "@npm/@angular/platform-browser/bundles/platform-browser.umd.js",
                         "@angular/platform-browser-dynamic": "@npm/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
-                        "core-js/client": "@npm/core-js/client/shim.min.js",
+                        "core-js/client": ["@npm/core-js/client/shim.min.js", "@npm/core-js/client/shim.min.js.map"],
                         "rxjs": [
                             "@npm/rxjs/**/*.js",
-                            "!@npm/rxjs/bundles/**/*.js",
-                            "!@npm/rxjs/node_modules/**/*.js",
-                            "!@npm/rxjs/src/**/*.js",
-                            "!@npm/rxjs/testing/**/*.js"
+                            "@npm/rxjs/**/*.js.map",
+                            "!@npm/rxjs/bundles/**/*",
+                            "!@npm/rxjs/node_modules/**/*",
+                            "!@npm/rxjs/src/**/*",
+                            "!@npm/rxjs/testing/**/*"
                         ],
-                        "systemjs": "@npm/systemjs/dist/system.src.js",
+                        "systemjs": ["@npm/systemjs/dist/system.src.js", "@npm/systemjs/dist/system.src.js.map"],
                         "zone.js": "@npm/zone.js/dist/zone.js",
+                        "hammerjs": "@npm/hammerjs/hammer.js",
                         "@ngx-translate/core": "@npm/@ngx-translate/core/bundles/core.umd.js",
                         "@ngx-translate/http-loader": "@npm/@ngx-translate/http-loader/bundles/http-loader.umd.js"
                     }
@@ -70,6 +74,34 @@
             ]
         },
         {
+            "name": "app.diva",
+            "path": "com.ebase.eox.presentation.web.app.diva",
+            "content": [
+                {
+                    "pattern": "/app/diva/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/diva/*.*"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "app.eoxcomponents",
+            "path": "com.ebase.eox.presentation.web.app.components",
+            "content": [
+                {
+                    "pattern": "/app/components/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/components/*.*"
+                    }
+                }
+            ]
+        },
+        {
             "name": "app.login",
             "path": "com.ebase.eox.presentation.web.app.login",
             "content": [
@@ -79,6 +111,20 @@
                     "path": ".",
                     "map": {
                         ".": "@app/login/*.*"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "app.login.admin",
+            "path": "com.ebase.eox.presentation.web.app.login.admin",
+            "content": [
+                {
+                    "pattern": "/app/login/admin/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/login/admin/*.*"
                     }
                 }
             ]

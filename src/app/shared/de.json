@@ -1,5 +1,12 @@
 {
     "EOX": {
-        "TITLE": "ebase Portal - EOX"
+        "TITLE": "ebase Portal - EOX ++",
+        "LOGIN": {
+            "TITLE": "Login",
+            "ADMIN": {
+                "USER_ID": "Benutzer-ID",
+                "PASSWORD": "Passwort"
+            }
+        }
     }
 }

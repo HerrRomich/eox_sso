@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="center stretch" class="app-container">
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxFill>
+        <div class="eox-header">
+            <img src="/app/logo.png"/>
+        </div>
+        <div class="eox-body" fxFlex>
+            <ng-content></ng-content>
+        </div>
+        <div class="eox-footer">
+            <a>{{footerText}}</a>
+        </div>
+    </div>
+</div>
