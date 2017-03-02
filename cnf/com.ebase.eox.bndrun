@@ -12,18 +12,17 @@
     -Xbootclasspath/p:C:/Users/mrs/.m2/repository/org/mortbay/jetty/alpn/alpn-boot/8.1.9.v20160720/alpn-boot-8.1.9.v20160720.jar
     
 -runrequires: \
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.osgi.boot)(version>=9.4.1))',\
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.osgi.boot)(version>=9.4.2))',\
 	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.gogo.shell)(version>=0.10.0))',\
 	osgi.identity;filter:='(&(osgi.identity=org.eclipse.equinox.console)(version>=1.1.200))',\
 	osgi.identity;filter:='(&(osgi.identity=slf4j.api)(version>=1.7.21))',\
 	osgi.identity;filter:='(&(osgi.identity=slf4j.simple)(version>=1.7.21))',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.http2.common)(version>=9.4.1))',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.http2.server)(version>=9.4.1))',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.alpn.server)(version>=9.4.1))',\
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.http2.common)(version>=9.4.2))',\
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.http2.server)(version>=9.4.2))',\
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.alpn.server)(version>=9.4.2))',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
-	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.osgi.alpn.fragment)(version>=9.4.1))',\
+	osgi.identity;filter:='(&(osgi.identity=org.eclipse.jetty.osgi.alpn.fragment)(version>=9.4.2))',\
 	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.scr)(version>=2.0.6))',\
-	osgi.identity;filter:='(osgi.identity=jetty.http)',\
 	osgi.identity;filter:='(&(osgi.identity=org.apache.felix.webconsole)(version>=4.2.18))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.infrastructure.http.jetty)(version>=1.0.0.201702230804))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.infrastructure.web)(version>=1.0.0.201702230828))',\
@@ -33,10 +32,10 @@
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login)(version>=1.0.0.201702230834))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login.admin)(version>=1.0.0.201702240919))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.diva)(version>=1.0.0.201702241611))',\
-	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.components)(version>=1.0.0.201702280747))'
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.components)(version>=1.0.0.201702280747))',\
+	osgi.identity;filter:='(&(osgi.identity=jetty.http)(version>=9.4.2))'
     
 -runbundles: \
-	jetty.http;version=snapshot,\
 	org.apache.commons.fileupload;version='[1.3.2,1.3.3)',\
 	org.apache.felix.gogo.command;version='[0.10.0,0.10.1)',\
 	org.apache.felix.gogo.runtime;version='[0.10.0,0.10.1)',\
@@ -47,25 +46,12 @@
 	org.apache.servicemix.bundles.commons-io;version='[1.4.0,1.4.1)',\
 	org.eclipse.equinox.console;version='[1.1.200,1.1.201)',\
 	org.eclipse.equinox.http.servlet;version='[1.3.0,1.3.1)',\
-	org.eclipse.jetty.alpn.server;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.http2.common;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.http2.server;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.io;version='[9.4.1,9.4.2)',\
 	org.eclipse.jetty.osgi-servlet-api;version='[3.1.0,3.1.1)',\
-	org.eclipse.jetty.osgi.alpn.fragment;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.security;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.server;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.servlet;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.util;version='[9.4.1,9.4.2)',\
 	org.mortbay.jetty.alpn.boot;version='[8.1.10,8.1.11)',\
 	slf4j.api;version='[1.7.21,1.7.22)',\
 	slf4j.simple;version='[1.7.21,1.7.22)',\
 	org.apache.felix.configadmin;version='[1.8.12,1.8.13)',\
 	org.apache.felix.eventadmin;version='[1.4.8,1.4.9)',\
-	org.eclipse.jetty.deploy;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.osgi.boot;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.webapp;version='[9.4.1,9.4.2)',\
-	org.eclipse.jetty.xml;version='[9.4.1,9.4.2)',\
 	org.eclipse.osgi.services;version='[3.5.100,3.5.101)',\
 	jackson-core-asl;version='[1.9.13,1.9.14)',\
 	jackson-mapper-asl;version='[1.9.13,1.9.14)',\
@@ -79,4 +65,17 @@
 	com.ebase.eox.presentation.web.app.diva;version=snapshot,\
 	com.ebase.eox.presentation.web.app.components;version=snapshot,\
 	com.ebase.eox.infrastructure.utils;version=snapshot,\
-	com.google.guava;version='[21.0.0,21.0.1)'
+	org.eclipse.jetty.alpn.server;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.deploy;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.http2.common;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.http2.server;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.io;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.osgi.alpn.fragment;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.osgi.boot;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.security;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.server;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.servlet;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.util;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.webapp;version='[9.4.2,9.4.3)',\
+	org.eclipse.jetty.xml;version='[9.4.2,9.4.3)',\
+	jetty.http;version=snapshot
