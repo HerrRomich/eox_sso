@@ -8,10 +8,11 @@ import javax.ws.rs.Produces;
 
 import com.ebase.eox.infrastructure.services.RestService;
 
-@Path("web-applications")
+@Path("/applications")
 public interface WebApplicationsService extends RestService {
-  
+
   @GET
+  @Path("routes")
   @Produces("application/json")
   List<AngularRoute> getRoutes();
 

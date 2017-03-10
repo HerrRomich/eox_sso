@@ -5,10 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.component.annotations.ReferencePolicyOption;
 
 import com.ebase.eox.application.web.WebApplication;
 import com.ebase.eox.application.web.WebApplications;
@@ -18,13 +19,14 @@ public class WebApplicationsImpl implements WebApplications {
 
   private List<WebApplication> webApplications = new ArrayList<>();
 
-  @Reference(cardinality=ReferenceCardinality.MULTIPLE)
+  @Reference(cardinality = ReferenceCardinality.MULTIPLE,
+      policyOption = ReferencePolicyOption.GREEDY)
   protected void setWebApplication(WebApplication webApplication) {
     synchronized (webApplications) {
       webApplications.add(webApplication);
     }
   }
-  
+
   protected void unsetWebApplication(WebApplication webApplication) {
     synchronized (webApplications) {
       webApplications.remove(webApplication);
@@ -39,9 +41,7 @@ public class WebApplicationsImpl implements WebApplications {
   @Override
   public String getWebApplicationUserGroupByPathOrNull(String path) {
     Stream<WebApplication> foundWebApplications = findWebApplication(path);
-    return foundWebApplications.map(webApplication -> webApplication.getApplicationUserGroup())
-        .findAny().orElse(null);
-
+    return foundWebApplications.map(WebApplication::getApplicationUserGroup).findAny().orElse(null);
   }
 
   @Override

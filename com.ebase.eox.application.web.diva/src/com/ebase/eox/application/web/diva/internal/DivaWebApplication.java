@@ -4,12 +4,12 @@ import org.osgi.service.component.annotations.Component;
 
 import com.ebase.eox.application.web.WebApplication;
 
-@Component(service = WebApplication.class)
+@Component(service = WebApplication.class, immediate = true)
 public class DivaWebApplication implements WebApplication {
 
   private static final String ADMIN_USER_GROUP = "admin";
   private static final String DIVA_APPLICATION_NAME = "diva";
-  private static final String DIVA_MODULE_PATH = "app/diva/diva.module#DivaModule";
+  private static final String DIVA_MODULE_PATH = "/app/diva/diva.module#DivaModule";
 
   @Override
   public String getApplicationName() {

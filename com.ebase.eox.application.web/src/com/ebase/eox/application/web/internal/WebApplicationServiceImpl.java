@@ -7,12 +7,14 @@ import java.util.stream.Stream;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ServiceScope;
 
 import com.ebase.eox.application.web.AngularRoute;
 import com.ebase.eox.application.web.WebApplications;
 import com.ebase.eox.application.web.WebApplicationsService;
+import com.ebase.eox.infrastructure.services.RestService;
 
-@Component(service = WebApplicationsService.class)
+@Component(service = RestService.class, scope = ServiceScope.SINGLETON)
 public class WebApplicationServiceImpl implements WebApplicationsService {
 
   @Reference(cardinality = ReferenceCardinality.MANDATORY)
