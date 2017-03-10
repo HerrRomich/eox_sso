@@ -12,3 +12,19 @@
 	com.ebase.eox.presentation.web.app.login.admin;version=latest,\
 	com.ebase.eox.presentation.web.app.shared;version=latest,\
 	com.ebase.eox.presentation.web.nodemodules;version=latest
+	
+-testpath: \
+    com.ebase.eox.application.web;version=latest,\
+    com.ebase.eox.application.web.diva;version=latest,\
+    com.ebase.eox.infrastructure.http.jetty;version=latest,\
+    com.ebase.eox.infrastructure.services;version=latest,\
+    com.ebase.eox.infrastructure.services.cxf;version=latest,\
+    com.ebase.eox.infrastructure.utils;version=latest,\
+    com.ebase.eox.infrastructure.web;version=latest,\
+    com.ebase.eox.presentation.web.app;version=latest,\
+    com.ebase.eox.presentation.web.app.shared;version=latest,\
+    com.ebase.eox.presentation.web.nodemodules;version=latest,\
+    com.ebase.eox.presentation.web.app.login;version=latest,\
+    com.ebase.eox.presentation.web.app.login.admin;version=latest,\
+    com.ebase.eox.presentation.web.app.diva;version=latest,\
+    com.ebase.eox.presentation.web.app.components;version=latest
