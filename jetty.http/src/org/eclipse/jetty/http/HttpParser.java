@@ -18,6 +18,14 @@
 
 package org.eclipse.jetty.http;
 
+import static org.eclipse.jetty.http.HttpCompliance.LEGACY;
+import static org.eclipse.jetty.http.HttpCompliance.RFC2616;
+import static org.eclipse.jetty.http.HttpCompliance.RFC7230;
+import static org.eclipse.jetty.http.HttpTokens.CARRIAGE_RETURN;
+import static org.eclipse.jetty.http.HttpTokens.LINE_FEED;
+import static org.eclipse.jetty.http.HttpTokens.SPACE;
+import static org.eclipse.jetty.http.HttpTokens.TAB;
+
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -33,14 +41,6 @@ import org.eclipse.jetty.util.TypeUtil;
 import org.eclipse.jetty.util.Utf8StringBuilder;
 import org.eclipse.jetty.util.log.Log;
 import org.eclipse.jetty.util.log.Logger;
-
-import static org.eclipse.jetty.http.HttpCompliance.LEGACY;
-import static org.eclipse.jetty.http.HttpCompliance.RFC2616;
-import static org.eclipse.jetty.http.HttpCompliance.RFC7230;
-import static org.eclipse.jetty.http.HttpTokens.CARRIAGE_RETURN;
-import static org.eclipse.jetty.http.HttpTokens.LINE_FEED;
-import static org.eclipse.jetty.http.HttpTokens.SPACE;
-import static org.eclipse.jetty.http.HttpTokens.TAB;
 
 
 /* ------------------------------------------------------------ */

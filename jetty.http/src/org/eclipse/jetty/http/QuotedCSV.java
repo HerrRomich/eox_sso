@@ -22,8 +22,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.jetty.util.QuotedStringTokenizer;
-
 /* ------------------------------------------------------------ */
 /**
  * Implements a quoted comma separated list of values
