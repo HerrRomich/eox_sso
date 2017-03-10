@@ -5,6 +5,4 @@ Bundle-Version: 1.0.0.${tstamp}
 
 Bundle-Description: Static Resources for Angular etc.
 
-
-
 -buildpath: osgi.cmpn;version=6.0
