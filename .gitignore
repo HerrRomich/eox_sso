@@ -1,6 +1,7 @@
 .gradle/
 .metadata
 .recommenders
+.sonarlint
 node_modules
 RemoteSystemsTempFiles
 com.ebase.eox.*/generated
