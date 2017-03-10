@@ -9,6 +9,6 @@ import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
     property = {HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=com.ebase.eox.appcontent",
         HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_PATH + "=/"},
     scope = ServiceScope.BUNDLE)
-public class PortalContentContextHelper extends DelegatedServletContextHalper {
+public class WebContentContextHelper extends DelegatedServletContextHalper {
 
 }

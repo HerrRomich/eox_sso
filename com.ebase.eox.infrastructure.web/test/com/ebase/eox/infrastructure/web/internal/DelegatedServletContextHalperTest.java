@@ -10,14 +10,14 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.osgi.framework.Bundle;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.http.context.ServletContextHelper;
 
-import com.ebase.eox.infrastructure.web.internal.DelegatedServletContextHalper;
-
+@RunWith(MockitoJUnitRunner.class)
 public class DelegatedServletContextHalperTest {
 
   private static final String TEST_MIME_TYPE_NAME = "test/mime_type_name";
@@ -36,8 +36,6 @@ public class DelegatedServletContextHalperTest {
 
   @Before
   public void setup() {
-    MockitoAnnotations.initMocks(this);
-
     delegatedServletContextHelperUnderTest = spy(new DelegatedServletContextHalper() {});
     delegatedServletContextHelperUnderTest.servletContextHelperDelegate = mockedDelegate;
   }

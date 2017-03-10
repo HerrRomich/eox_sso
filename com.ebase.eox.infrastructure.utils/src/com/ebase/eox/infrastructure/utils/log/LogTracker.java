@@ -5,6 +5,7 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogService;
 import org.osgi.util.tracker.ServiceTracker;
 
+@SuppressWarnings("rawtypes") 
 public class LogTracker extends ServiceTracker<LogService, LogService> implements LogService {
 
   public LogTracker(BundleContext bundleContext) {

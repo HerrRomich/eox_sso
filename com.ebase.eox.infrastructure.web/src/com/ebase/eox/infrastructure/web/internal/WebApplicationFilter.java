@@ -12,7 +12,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ServiceScope;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
@@ -20,23 +19,15 @@ import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 @Component(scope = ServiceScope.PROTOTYPE, service = Filter.class,
     property = {
         HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN + "="
-            + PortalApplicationFilter.APPLICATION_CONTEXT + "*",
+            + WebApplicationFilter.APPLICATION_CONTEXT + "*",
         HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "=("
             + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=com.ebase.eox.appcontent)"})
-public class PortalApplicationFilter implements Filter {
+public class WebApplicationFilter implements Filter {
 
   private static final String INDEX_HTML = "/index.html";
   private static final String USER_ROLE_SESSION_ATTRIBUTE = "com.ebase.eox.userrole";
   public static final String APPLICATION_CONTEXT = "/";
   public static final String USER_ROLE = "eox";
-
-  @Activate
-  protected void activate() {
-    System.out.println("Test");
-  }
-  
-  @Override
-  public void destroy() {}
 
   @Override
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
@@ -64,6 +55,13 @@ public class PortalApplicationFilter implements Filter {
   }
 
   @Override
-  public void init(FilterConfig config) throws ServletException {}
+  public void init(FilterConfig config) throws ServletException {
+    // No need to initialise
+  }
+
+  @Override
+  public void destroy() {
+    // Nothing to destroy
+  }
 
 }

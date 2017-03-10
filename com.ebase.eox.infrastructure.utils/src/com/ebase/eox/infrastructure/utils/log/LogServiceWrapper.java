@@ -3,6 +3,7 @@ package com.ebase.eox.infrastructure.utils.log;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogService;
 
+@SuppressWarnings("rawtypes") 
 public class LogServiceWrapper implements LogService {
 
   private volatile LogService logService;
@@ -24,9 +25,9 @@ public class LogServiceWrapper implements LogService {
 
   @Override
   public void log(ServiceReference sr, int level, String message, Throwable exception) {
-    LogService logService = getLogService();
-    if (logService != null) {
-      logService.log(sr, level, message, exception);
+    LogService actualLogService = getLogService();
+    if (actualLogService != null) {
+      actualLogService.log(sr, level, message, exception);
     }
   }
 

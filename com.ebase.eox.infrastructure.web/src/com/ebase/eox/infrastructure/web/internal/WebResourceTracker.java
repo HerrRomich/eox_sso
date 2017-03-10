@@ -26,16 +26,15 @@ public class WebResourceTracker extends BundleTracker<List<ServiceRegistration<W
   private static final String CONTEXT_SELECT_FORMAT = "(%1$s=%2$s)";
   private static final String PATH_TO_WEB_RESOURCE_LIST = "/OSGI-INF/web-resources.json";
 
+  private ObjectMapper objectMapper;
+  
+  private LogService logService;
 
   public WebResourceTracker(BundleContext context, LogService logService) {
     super(context, BUNDLE_STETES_TO_TRACK, null);
     objectMapper = new ObjectMapper();
     this.logService = logService;
   }
-
-  private ObjectMapper objectMapper;
-  
-  private LogService logService;
 
   @Override
   public List<ServiceRegistration<WebResource>> addingBundle(Bundle bundle, BundleEvent event) {
@@ -100,7 +99,7 @@ public class WebResourceTracker extends BundleTracker<List<ServiceRegistration<W
   @Override
   public void removedBundle(Bundle bundle, BundleEvent event,
       List<ServiceRegistration<WebResource>> resources) {
-    resources.forEach(resource -> resource.unregister());
+    resources.forEach(ServiceRegistration<WebResource>::unregister);
   }
 
 }

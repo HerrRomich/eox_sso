@@ -26,8 +26,9 @@ import java.util.stream.IntStream;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
@@ -37,9 +38,9 @@ import org.osgi.util.tracker.BundleTracker;
 
 import com.ebase.eox.infrastructure.web.WebResource;
 
+@RunWith(MockitoJUnitRunner.class)
 public class WebResourceTrackerTest {
 
-  private static final int BUNDLE_STETES_TO_TRACK = Bundle.ACTIVE;
   private static final String WEB_RESOURCE_PROPERTIES_FILE_NAME_TEMPLATE =
       "web-resource%1$d.properties";
   private static final String WEB_RESOURCES_JSON = "web-resources.json";
@@ -68,8 +69,6 @@ public class WebResourceTrackerTest {
 
   @Before
   public void setUp() throws Exception {
-    MockitoAnnotations.initMocks(this);
-
     webResourceTrackerUnderTest = new WebResourceTracker(mockedContext, mockedLogService);
 
     when(mockedBundle.getBundleContext()).thenReturn(mockedContext);
@@ -157,8 +156,6 @@ public class WebResourceTrackerTest {
 
   @Test
   public void shouldReturnNullOnAddingBundleIfRegistrationFailed() throws IOException {
-    when(mockedUrlConnection.getInputStream()).thenThrow(Exception.class);
-
     BundleEvent bundleEvent = new BundleEvent(BundleEvent.STARTED, mockedBundle);
     List<ServiceRegistration<WebResource>> actualRegistrationList =
         webResourceTrackerUnderTest.addingBundle(mockedBundle, bundleEvent);

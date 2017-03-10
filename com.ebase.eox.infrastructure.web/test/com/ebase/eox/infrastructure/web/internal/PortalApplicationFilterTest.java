@@ -17,12 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PortalApplicationFilterTest {
 
   private static final String KNOWN_RESOURCE = "/known_kontext/known_resource.resource";
@@ -31,7 +33,7 @@ public class PortalApplicationFilterTest {
   private static final String INDEX_HTML = "/index.html";
 
   @InjectMocks
-  private PortalApplicationFilter portalApplicationFilterUnderTest = new PortalApplicationFilter();
+  private WebApplicationFilter portalApplicationFilterUnderTest = new WebApplicationFilter();
 
   @Mock
   private HttpServletRequest mockedServletRequest;
@@ -44,13 +46,12 @@ public class PortalApplicationFilterTest {
 
   @Before
   public void setUp() throws Exception {
-    MockitoAnnotations.initMocks(this);
     when(mockedServletRequest.getRequestDispatcher(eq(INDEX_HTML)))
         .thenReturn(mockedRequestDispatcher);
-    doAnswer(new Answer() {
+    doAnswer(new Answer<Void>() {
 
       @Override
-      public Object answer(InvocationOnMock invocation) throws Throwable {
+      public Void answer(InvocationOnMock invocation) throws Throwable {
         HttpServletRequest request = (HttpServletRequest) invocation.getArgument(0);
         HttpServletResponse response = (HttpServletResponse) invocation.getArgument(1);
         if (KNOWN_RESOURCE.equals(request.getPathInfo())) {
