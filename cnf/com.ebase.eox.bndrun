@@ -33,7 +33,15 @@
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login.admin)(version>=1.0.0.201702240919))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.diva)(version>=1.0.0.201702241611))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.components)(version>=1.0.0.201702280747))',\
-	osgi.identity;filter:='(&(osgi.identity=jetty.http)(version>=9.4.2))'
+	osgi.identity;filter:='(&(osgi.identity=jetty.http)(version>=9.4.2))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.infrastructure.services)(version>=1.0.0.201703020927))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.infrastructure.services.cxf)(version>=1.0.0.201703031222))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.application.web)(version>=1.0.0.201703031138))',\
+	osgi.identity;filter:='(&(osgi.identity=jackson-xc)(version>=1.9.13))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.application.web.diva)(version>=1.0.0.201703031349))',\
+	osgi.identity;filter:='(&(osgi.identity=jackson-core-asl)(version>=1.9.13))',\
+	osgi.identity;filter:='(&(osgi.identity=jackson-jaxrs)(version>=1.9.13))',\
+	osgi.identity;filter:='(&(osgi.identity=jackson-mapper-asl)(version>=1.9.13))'
     
 -runbundles: \
 	org.apache.commons.fileupload;version='[1.3.2,1.3.3)',\
@@ -78,4 +86,16 @@
 	org.eclipse.jetty.util;version='[9.4.2,9.4.3)',\
 	org.eclipse.jetty.webapp;version='[9.4.2,9.4.3)',\
 	org.eclipse.jetty.xml;version='[9.4.2,9.4.3)',\
-	jetty.http;version=snapshot
+	jetty.http;version=snapshot,\
+	com.ebase.eox.infrastructure.services;version=snapshot,\
+	javax.annotation-api;version='[1.3.0,1.3.1)',\
+	javax.ws.rs-api;version='[2.0.1,2.0.2)',\
+	org.apache.cxf.cxf-core;version='[3.1.8,3.1.9)',\
+	org.apache.cxf.cxf-rt-frontend-jaxrs;version='[3.1.8,3.1.9)',\
+	org.apache.cxf.cxf-rt-transports-http;version='[3.1.8,3.1.9)',\
+	org.apache.ws.xmlschema.core;version='[2.2.1,2.2.2)',\
+	com.ebase.eox.infrastructure.services.cxf;version=snapshot,\
+	com.ebase.eox.application.web;version=snapshot,\
+	jackson-xc;version='[1.9.13,1.9.14)',\
+	com.ebase.eox.application.web.diva;version=snapshot,\
+	jackson-jaxrs;version='[1.9.13,1.9.14)'
