@@ -39,6 +39,6 @@ export class TranslateHttpLoader implements TranslateLoader {
      */
     public getTranslation(lang: string): any {
         return this.http.get(`${this.prefix}${lang}${this.suffix}`)
-            .map((res: Response) => res.json()).catch(res => Observable.of({}));
+            .map((res: Response) => res.json()).catch(res => Observable.of(<Object>{}));
     }
 }

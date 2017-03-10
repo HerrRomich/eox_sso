@@ -18,7 +18,7 @@ export class RoutesLoaderService implements CanActivate {
         return;
       }
 
-      this.http.get('app/app-routes.json').map((resp: Response) => resp.json()).subscribe((data: Routes) => {
+      this.http.get('services/applications/routes').map((resp: Response) => resp.json()).subscribe((data: Routes) => {
         this.router.resetConfig(data);
         this.isLoaded = true;
         resolve(false);

@@ -5,7 +5,7 @@
     },
     "modules": [
         {
-            "name": "nodemodules",
+            "name": "com.ebase.eox.presentation.web.nodemodules",
             "path": "com.ebase.eox.presentation.web.nodemodules",
             "content": [
                 {
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "name": "app",
+            "name": "com.ebase.eox.presentation.web.app",
             "path": "com.ebase.eox.presentation.web.app",
             "content": [
                 {
@@ -60,7 +60,7 @@
             ]
         },
         {
-            "name": "app.shared",
+            "name": "com.ebase.eox.presentation.web.app.shared",
             "path": "com.ebase.eox.presentation.web.app.shared",
             "content": [
                 {
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "name": "app.diva",
+            "name": "com.ebase.eox.presentation.web.app.diva",
             "path": "com.ebase.eox.presentation.web.app.diva",
             "content": [
                 {
@@ -88,7 +88,7 @@
             ]
         },
         {
-            "name": "app.eoxcomponents",
+            "name": "com.ebase.eox.presentation.web.app.components",
             "path": "com.ebase.eox.presentation.web.app.components",
             "content": [
                 {
@@ -102,7 +102,7 @@
             ]
         },
         {
-            "name": "app.login",
+            "name": "com.ebase.eox.presentation.web.app.login",
             "path": "com.ebase.eox.presentation.web.app.login",
             "content": [
                 {
@@ -116,7 +116,7 @@
             ]
         },
         {
-            "name": "app.login.admin",
+            "name": "com.ebase.eox.presentation.web.app.login.admin",
             "path": "com.ebase.eox.presentation.web.app.login.admin",
             "content": [
                 {
