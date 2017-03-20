@@ -24,6 +24,7 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
+    "codelyzer": "^2.0.1",
     "fs-extra": "^2.0.0",
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
@@ -38,6 +39,7 @@
     "gulp-watch": "^4.3.11",
     "multimatch": "^2.1.0",
     "through2": "^2.0.3",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.1",
     "vinyl-fs": "^2.4.4",
     "yargs": "^6.6.0"

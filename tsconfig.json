@@ -2,10 +2,11 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "isolatedModules": true,
     "lib": [
       "es2015",
       "dom"
@@ -15,6 +16,7 @@
     "types": [
       "node"
     ],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "noEmitOnError": true
   }
 }
