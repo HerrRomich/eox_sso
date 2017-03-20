@@ -7,13 +7,11 @@ var fse = require("fs-extra");
 var filter = require("gulp-filter");
 var multimatch = require("multimatch");
 var path = require("path");
-var foreach = require("gulp-foreach");
 var watch = require("gulp-watch");
 var sourcemaps = require("gulp-sourcemaps");
-var glob = require("glob");
-var plumber = require("gulp-plumber");
 var through2 = require("through2");
 var argv = require("yargs").argv;
+var plumber = require("gulp-plumber");
 
 const contentDirName = 'WEB-CONTENT';
 const webResourceDescFileName = 'OSGI-INF/web-resources.json';
@@ -101,29 +99,24 @@ function testFileEtension(file, extension) {
 
 function pipeBuildTask(stream) {
     const tsProject = ts.createProject('tsconfig.json');
-    const tsFilter = filter(file => testFileEtension(file, '.ts'), { restore: true });
+    const tsFilter = filter(file =>testFileEtension(file, '.ts'), { restore: true });
     const scssFilter = filter(file => testFileEtension(file, '.scss'), { restore: true });
 
     var result = stream;
-    result = result.pipe(tsFilter)
+    result = result.pipe(plumber())
+        .pipe(tsFilter)
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .pipe(sourcemaps.write())
         .pipe(tsFilter.restore)
         .pipe(scssFilter)
-        .pipe(sass())
+        .pipe(sass({includePaths: [' c:/workspaces/com.ebase.eox/']}))
         .pipe(scssFilter.restore)
-        .pipe(foreach( (stream, file) => {
+        .pipe(gulp.dest(file => {
+            
             var relPath = path.relative(file.cwd, file.path);
             var fileModuleMaps = getFileModuleMaps(relPath);
-            result = stream;
-            fileModuleMaps.forEach(function (fileModuleMap) {
-                result = result.pipe(gulp.dest(function (file) {
-                    //util.log('Dest file: ' + file.path);
-                    return fileModuleMap.destPath;
-                }))
-            });
-            return result;
+            return fileModuleMaps[0].destPath;
         }));
     return result;
 }
@@ -218,16 +211,6 @@ gulp.task('build', ['clean', 'web-resources'], function () {
     return getBuildTask(flattenedPattern);
 })
 
-const addChangeFilter = filter(file => {
-    var result = (file.event === 'add' || file.event === 'change');
-    return result;
-}, { restore: true, passthrough: true });
-
-const unlinkFilter = filter(file => {
-    var result = (file.event === 'unlink');
-    return result;
-}, { restore: true });
-
 Array.prototype.unique = function () {
     var seen = {};
     var out = [];
@@ -301,6 +284,11 @@ function batchUnlink() {
 
 gulp.task('development', ['build'], function () {
     const flattenedPatterns = flattenMaps(moduleMaps);
+    const unlinkFilter = filter(file => {
+        var result = (file.event === 'unlink');
+        return result;
+    }, { restore: true });
+
     var stream = watch(flattenedPatterns, { ignoreInitial: true })
         .pipe(unlinkFilter)
         .pipe(batchUnlink())
