@@ -1,3 +1,14 @@
-<eox-start-page [footerText]="'EOX.TITLE' | translate">
-    <h1>Test</h1>
+<eox-start-page class="ebase-theme">
+    <div eox-header fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div id="eoxHeaderLogo"></div>
+        <div>
+            <eox-toolbar></eox-toolbar>
+        </div>
+    </div>
+    <div eox-body fxFlex>
+        <router-outlet></router-outlet>
+    </div>
+    <div eox-footer>
+        <h1>TestF</h1>
+    </div>
 </eox-start-page>

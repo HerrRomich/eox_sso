@@ -20,10 +20,13 @@
                         "@angular/http": "@npm/@angular/http/bundles/http.umd.js",
                         "@angular/router": "@npm/@angular/router/bundles/router.umd.js",
                         "@angular/material": "@npm/@angular/material/bundles/material.umd.js",
-                        "@angular/flex-layout" : "@npm/@angular/flex-layout/bundles/flex-layout.umd.js",
+                        "@angular/flex-layout": "@npm/@angular/flex-layout/bundles/flex-layout.umd.js",
                         "@angular/platform-browser": "@npm/@angular/platform-browser/bundles/platform-browser.umd.js",
                         "@angular/platform-browser-dynamic": "@npm/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
-                        "core-js/client": ["@npm/core-js/client/shim.min.js", "@npm/core-js/client/shim.min.js.map"],
+                        "core-js/client": [
+                            "@npm/core-js/client/shim.min.js",
+                            "@npm/core-js/client/shim.min.js.map"
+                        ],
                         "rxjs": [
                             "@npm/rxjs/**/*.js",
                             "@npm/rxjs/**/*.js.map",
@@ -32,7 +35,10 @@
                             "!@npm/rxjs/src/**/*",
                             "!@npm/rxjs/testing/**/*"
                         ],
-                        "systemjs": ["@npm/systemjs/dist/system.src.js", "@npm/systemjs/dist/system.src.js.map"],
+                        "systemjs": [
+                            "@npm/systemjs/dist/system.src.js",
+                            "@npm/systemjs/dist/system.src.js.map"
+                        ],
                         "zone.js": "@npm/zone.js/dist/zone.js",
                         "hammerjs": "@npm/hammerjs/hammer.js",
                         "@ngx-translate/core": "@npm/@ngx-translate/core/bundles/core.umd.js",
@@ -68,7 +74,22 @@
                     "contextName": "com.ebase.eox.appcontent",
                     "path": ".",
                     "map": {
-                        ".": "@app/shared/*.*"
+                        ".": "@app/shared/*.*",
+                        "authentication": "@app/shared/authentication/*.*"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "com.ebase.eox.presentation.web.app.shared.authentication.admin",
+            "path": "com.ebase.eox.presentation.web.app.shared.authentication.admin",
+            "content": [
+                {
+                    "pattern": "/app/shared/authentication/admin/*",
+                    "contextName": "com.ebase.eox.appcontent",
+                    "path": ".",
+                    "map": {
+                        ".": "@app/shared/authentication/admin/*.*"
                     }
                 }
             ]
@@ -102,29 +123,15 @@
             ]
         },
         {
-            "name": "com.ebase.eox.presentation.web.app.login",
-            "path": "com.ebase.eox.presentation.web.app.login",
+            "name": "com.ebase.eox.presentation.web.app.themes.ebase",
+            "path": "com.ebase.eox.presentation.web.app.themes.ebase",
             "content": [
                 {
-                    "pattern": "/app/login/*",
+                    "pattern": "/app/themes/ebase/*",
                     "contextName": "com.ebase.eox.appcontent",
                     "path": ".",
                     "map": {
-                        ".": "@app/login/*.*"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "com.ebase.eox.presentation.web.app.login.admin",
-            "path": "com.ebase.eox.presentation.web.app.login.admin",
-            "content": [
-                {
-                    "pattern": "/app/login/admin/*",
-                    "contextName": "com.ebase.eox.appcontent",
-                    "path": ".",
-                    "map": {
-                        ".": "@app/login/admin/*.*"
+                        ".": "@app/themes/ebase/*.*"
                     }
                 }
             ]

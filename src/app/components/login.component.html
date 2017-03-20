@@ -1,0 +1,25 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <div fxLayout="column">
+        <div fxFlexAlign="auto">
+            <h1>{{'EOX.LOGIN.TITLE' | translate}}</h1>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center space-around" fxLayoutGap="25px">
+            <md-card>
+                <md-card-header>
+                    <md-card-title>
+                        <h3>{{'EOX.LOGIN.TITLE' | translate}}</h3>
+                    </md-card-title>
+                </md-card-header>
+                <md-card-content>
+                    <ng-content></ng-content>
+                </md-card-content>
+                <md-card-actions align="end">
+                    <button md-button (click)="login">{{'EOX.LOGIN.TITLE' | translate}}</button>
+                </md-card-actions>
+            </md-card>
+            <md-card style="padding: 4px 4px 1px 4px">
+                <img src="app/themes/ebase/login-diva.jpg" />
+            </md-card>
+        </div>
+    </div>
+</div>

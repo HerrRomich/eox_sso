@@ -29,8 +29,6 @@
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app)(version>=1.0.0.201702230834))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.nodemodules)(version>=1.0.0.201702230836))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.shared)(version>=1.0.0.201702230833))',\
-	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login)(version>=1.0.0.201702230834))',\
-	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.login.admin)(version>=1.0.0.201702240919))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.diva)(version>=1.0.0.201702241611))',\
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.components)(version>=1.0.0.201702280747))',\
 	osgi.identity;filter:='(&(osgi.identity=jetty.http)(version>=9.4.2))',\
@@ -41,7 +39,9 @@
 	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.application.web.diva)(version>=1.0.0.201703031349))',\
 	osgi.identity;filter:='(&(osgi.identity=jackson-core-asl)(version>=1.9.13))',\
 	osgi.identity;filter:='(&(osgi.identity=jackson-jaxrs)(version>=1.9.13))',\
-	osgi.identity;filter:='(&(osgi.identity=jackson-mapper-asl)(version>=1.9.13))'
+	osgi.identity;filter:='(&(osgi.identity=jackson-mapper-asl)(version>=1.9.13))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.shared.authentication.admin)(version>=1.0.0.201703141459))',\
+	osgi.identity;filter:='(&(osgi.identity=com.ebase.eox.presentation.web.app.themes.ebase)(version>=1.0.0.201703171226))'
     
 -runbundles: \
 	org.apache.commons.fileupload;version='[1.3.2,1.3.3)',\
@@ -68,8 +68,6 @@
 	com.ebase.eox.presentation.web.app;version=snapshot,\
 	com.ebase.eox.presentation.web.app.shared;version=snapshot,\
 	com.ebase.eox.presentation.web.nodemodules;version=snapshot,\
-	com.ebase.eox.presentation.web.app.login;version=snapshot,\
-	com.ebase.eox.presentation.web.app.login.admin;version=snapshot,\
 	com.ebase.eox.presentation.web.app.diva;version=snapshot,\
 	com.ebase.eox.presentation.web.app.components;version=snapshot,\
 	com.ebase.eox.infrastructure.utils;version=snapshot,\
@@ -98,4 +96,6 @@
 	com.ebase.eox.application.web;version=snapshot,\
 	jackson-xc;version='[1.9.13,1.9.14)',\
 	com.ebase.eox.application.web.diva;version=snapshot,\
-	jackson-jaxrs;version='[1.9.13,1.9.14)'
+	jackson-jaxrs;version='[1.9.13,1.9.14)',\
+	com.ebase.eox.presentation.web.app.shared.authentication.admin;version=snapshot,\
+	com.ebase.eox.presentation.web.app.themes.ebase;version=snapshot

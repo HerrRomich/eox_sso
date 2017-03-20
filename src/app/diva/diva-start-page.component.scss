@@ -1,0 +1,22 @@
+div[eox-header] {
+    background-color: #39444C;
+    padding: 30px;
+    color: #DBDDDF;
+}
+
+div[eox-body] {
+    background-color: #EBEAEC;
+    padding: 30px;
+}
+
+div[eox-footer] {
+    background-color: #EBEAEC;
+    padding: 30px;
+}
+
+#eoxHeaderLogo {
+    background: none no-repeat;
+    height: 36px;
+    width: 106px;
+    background-image: url(app/logo.png);
+}

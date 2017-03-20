@@ -9,8 +9,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class StartPageComponent implements OnInit {
 
-    @Input() footerText: string;
-
     constructor() {
     }
 

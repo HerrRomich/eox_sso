@@ -1,0 +1,18 @@
+<div>
+    <md-input-container>
+        <input mdInput [mdAutocomplete]="autocompleteTemplateRefId" type="search" name="componentToggleProperty">
+    </md-input-container>
+    <md-autocomplete #autocompleteTemplateRefId="mdAutocomplete" [displayWith]="onSelectConvertValueToInputFn">
+        <md-option>
+            Choice shown in dropdown
+        </md-option>
+    </md-autocomplete>
+    <button md-button (click)="onClick" color="accent">
+        <md-icon class="md-18">Check</md-icon>
+    </button>
+    <button md-button (click)="onClick">Action1</button>
+    <button md-button (click)="onClick">Action1</button>
+    <button md-button (click)="onClick">Action1</button>
+    <button md-button (click)="onClick">Action1</button>
+    <button md-button (click)="onClick">Action1</button>
+</div>

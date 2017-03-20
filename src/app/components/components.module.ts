@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '@angular/material'
+import { MaterialModule } from '@angular/material';
 
-import { StartPageComponent } from './start-page.component'
-import { BrickComponent } from './brick.componen'
+import { SharedModule } from 'app/shared/shared.module';
+import { StartPageComponent } from './start-page.component';
+import { ToolbarComponent } from './toolbar.component';
+import { LoginComponent } from './login.component';
 
 @NgModule({
-    imports: [FlexLayoutModule, MaterialModule],
-    exports: [StartPageComponent, BrickComponent],
-    declarations: [StartPageComponent, BrickComponent],
+    imports: [SharedModule, FlexLayoutModule, MaterialModule],
+    exports: [StartPageComponent, ToolbarComponent, LoginComponent],
+    declarations: [StartPageComponent, ToolbarComponent, LoginComponent],
     providers: [],
 })
 export class ComponentsModule { }

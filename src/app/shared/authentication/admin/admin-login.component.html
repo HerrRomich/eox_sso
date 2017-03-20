@@ -1,0 +1,12 @@
+<eox-login>
+    <div fxLayout="column">
+            <md-input-container floatPlaceholder="always">
+                <input mdInput name="userNameInput" [(ngModel)]="userName" type="text" placeholder="{{'EOX.LOGIN.ADMIN.USER_ID' | translate}}"
+                    required>
+            </md-input-container>
+            <md-input-container floatPlaceholder="always">
+                <input mdInput name="passwordInput" [(ngModel)]="password" type="password" placeholder="{{'EOX.LOGIN.ADMIN.PASSWORD' | translate}}"
+                    required>
+            </md-input-container>
+    </div>
+</eox-login>
