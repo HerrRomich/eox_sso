@@ -5,7 +5,6 @@ import java.util.Hashtable;
 
 import javax.servlet.Servlet;
 
-import org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
@@ -17,7 +16,6 @@ import com.ebase.eox.infrastructure.services.RestService;
 public class RestServiceTrackerCustomizer
     implements ServiceTrackerCustomizer<RestService, ServiceRegistration<Servlet>> {
 
-  private static final String JAXRS_PROVIDERS = "jaxrs.providers";
   private static final String BASIC_CONTEXT = "/";
   private static final String SERVICESCONTENT = "com.ebase.eox.servicescontent";
   private static final String CONTEXT_SELECT_FORMAT = "(%1$s=%2$s)";

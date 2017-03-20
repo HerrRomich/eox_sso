@@ -17,6 +17,8 @@ import org.osgi.framework.Bundle;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.http.context.ServletContextHelper;
 
+import com.ebase.eox.infrastructure.web.internal.DelegatedServletContextHalper;
+
 @RunWith(MockitoJUnitRunner.class)
 public class DelegatedServletContextHalperTest {
 

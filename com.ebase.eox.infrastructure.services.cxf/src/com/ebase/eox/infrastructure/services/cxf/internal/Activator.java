@@ -1,7 +1,6 @@
 package com.ebase.eox.infrastructure.services.cxf.internal;
 
 import javax.servlet.Servlet;
-import javax.ws.rs.core.Application;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

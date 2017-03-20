@@ -9,10 +9,13 @@ import java.util.stream.Stream;
 
 import org.eclipse.equinox.http.servlet.HttpServiceServlet;
 import org.eclipse.jetty.osgi.boot.OSGiServerConstants;
+import org.eclipse.jetty.security.ConstraintMapping;
+import org.eclipse.jetty.security.ConstraintSecurityHandler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.util.security.Constraint;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -77,6 +80,9 @@ public class Activator implements BundleActivator {
     final ServletHolder holder = new ServletHolder(servlet);
     holder.setAsyncSupported(true);
     final ServletContextHandler httpContext = new ServletContextHandler(3);
+    
+    ConstraintSecurityHandler securityHandler = createSecurityHandlerForRedirectionToSsl();
+    httpContext.setSecurityHandler(securityHandler);
 
     httpContext.addServlet(holder, "/*");
     final Dictionary<String, String> servletProps = new Hashtable<>();
@@ -84,6 +90,19 @@ public class Activator implements BundleActivator {
 
     contextHandlerServiceRegistration =
         context.registerService(ContextHandler.class, httpContext, servletProps);
+  }
+
+  private ConstraintSecurityHandler createSecurityHandlerForRedirectionToSsl() {
+    Constraint constraint = new Constraint();
+    constraint.setDataConstraint(Constraint.DC_CONFIDENTIAL);
+
+    ConstraintMapping constraintMapping = new ConstraintMapping();
+    constraintMapping.setPathSpec("/*");
+    constraintMapping.setConstraint(constraint );
+  
+    ConstraintSecurityHandler securityHandler = new ConstraintSecurityHandler();
+    securityHandler.addConstraintMapping(constraintMapping );
+    return securityHandler;
   }
 
   private String getJettyXmlConfigUrls(final BundleContext context) {

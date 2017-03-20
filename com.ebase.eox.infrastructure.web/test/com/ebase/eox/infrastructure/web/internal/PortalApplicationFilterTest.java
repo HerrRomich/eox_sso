@@ -24,6 +24,8 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
+import com.ebase.eox.infrastructure.web.internal.WebApplicationFilter;
+
 @RunWith(MockitoJUnitRunner.class)
 public class PortalApplicationFilterTest {
 

@@ -37,6 +37,8 @@ import org.osgi.service.log.LogService;
 import org.osgi.util.tracker.BundleTracker;
 
 import com.ebase.eox.infrastructure.web.WebResource;
+import com.ebase.eox.infrastructure.web.internal.WebResourceRegistrationException;
+import com.ebase.eox.infrastructure.web.internal.WebResourceTracker;
 
 @RunWith(MockitoJUnitRunner.class)
 public class WebResourceTrackerTest {

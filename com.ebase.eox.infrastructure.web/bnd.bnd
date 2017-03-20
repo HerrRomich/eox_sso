@@ -12,9 +12,9 @@ Import-Package: *
 	com.ebase.eox.infrastructure.utils;version=latest,\
 	com.google.guava;version=21.0
 
-Private-Package: com.ebase.eox.infrastructure.web.internal
 Export-Package: \
 	com.ebase.eox.infrastructure.web,\
 	com.ebase.eox.infrastructure.web.applications
 Bundle-Activator: com.ebase.eox.infrastructure.web.internal.Activator
 
+Private-Package: com.ebase.eox.infrastructure.web.internal
