@@ -11,6 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ServiceScope;
@@ -35,16 +36,23 @@ public class WebApplicationFilter implements Filter {
     HttpServletRequest request = (HttpServletRequest) req;
     HttpServletResponse response = (HttpServletResponse) res;
 
-    /*
-     * Boolean isFirstCall = (Boolean)request.getAttribute(FIRST_CALL_REQUEST_ATTR); if (isFirstCall
-     * != null && !isFirstCall) return; request.setAttribute(FIRST_CALL_REQUEST_ATTR, true);
-     * 
-     * 
-     * HttpSession session = request.getSession(false); if (session == null) { session =
-     * request.getSession(); } String userRole = (String)
-     * session.getAttribute(USER_ROLE_SESSION_ATTRIBUTE); if (!USER_ROLE.equals(userRole)) {
-     * request.logout(); session.setAttribute(USER_ROLE_SESSION_ATTRIBUTE, USER_ROLE); }
-     */
+
+//    Boolean isFirstCall = (Boolean) request.getAttribute(FIRST_CALL_REQUEST_ATTR);
+//    if (isFirstCall != null && !isFirstCall)
+//      return;
+//    request.setAttribute(FIRST_CALL_REQUEST_ATTR, true);
+
+
+    HttpSession session = request.getSession(false);
+    if (session == null) {
+      session = request.getSession();
+    }
+    String userRole = (String) session.getAttribute(USER_ROLE_SESSION_ATTRIBUTE);
+    if (!USER_ROLE.equals(userRole)) {
+      request.logout();
+      session.setAttribute(USER_ROLE_SESSION_ATTRIBUTE, USER_ROLE);
+    }
+
     chain.doFilter(request, response);
     // Response is OK
     if (response.getStatus() < 400)

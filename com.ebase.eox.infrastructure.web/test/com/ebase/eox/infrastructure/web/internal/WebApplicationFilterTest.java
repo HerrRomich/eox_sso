@@ -14,6 +14,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +28,7 @@ import org.mockito.stubbing.Answer;
 import com.ebase.eox.infrastructure.web.internal.WebApplicationFilter;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PortalApplicationFilterTest {
+public class WebApplicationFilterTest {
 
   private static final String KNOWN_RESOURCE = "/known_kontext/known_resource.resource";
   private static final String UNKNOWN_RESOURCE = "/unknown_kontext/known_resource";
@@ -35,7 +36,7 @@ public class PortalApplicationFilterTest {
   private static final String INDEX_HTML = "/index.html";
 
   @InjectMocks
-  private WebApplicationFilter portalApplicationFilterUnderTest = new WebApplicationFilter();
+  private WebApplicationFilter webApplicationFilterUnderTest = new WebApplicationFilter();
 
   @Mock
   private HttpServletRequest mockedServletRequest;
@@ -45,6 +46,8 @@ public class PortalApplicationFilterTest {
   private FilterChain mockedFilterChain;
   @Mock
   private RequestDispatcher mockedRequestDispatcher;
+  @Mock
+  private HttpSession mockedSession;
 
   @Before
   public void setUp() throws Exception {
@@ -64,13 +67,15 @@ public class PortalApplicationFilterTest {
         return null;
       }
     }).when(mockedFilterChain).doFilter(eq(mockedServletRequest), eq(mockedServletResponse));
+
+    when(mockedServletRequest.getSession()).thenReturn(mockedSession);
   }
 
   @Test
   public void shouldRedirectToIndexHtmlWhenResourceNotFound() throws IOException, ServletException {
     when(mockedServletRequest.getPathInfo()).thenReturn(UNKNOWN_RESOURCE);
 
-    portalApplicationFilterUnderTest.doFilter(mockedServletRequest, mockedServletResponse,
+    webApplicationFilterUnderTest.doFilter(mockedServletRequest, mockedServletResponse,
         mockedFilterChain);
 
     verify(mockedFilterChain).doFilter(eq(mockedServletRequest), eq(mockedServletResponse));
@@ -82,7 +87,7 @@ public class PortalApplicationFilterTest {
   public void shouldDoNothingWhenResourceFound() throws IOException, ServletException {
     when(mockedServletRequest.getPathInfo()).thenReturn(KNOWN_RESOURCE);
 
-    portalApplicationFilterUnderTest.doFilter(mockedServletRequest, mockedServletResponse,
+    webApplicationFilterUnderTest.doFilter(mockedServletRequest, mockedServletResponse,
         mockedFilterChain);
 
     verify(mockedServletRequest, never()).getRequestDispatcher(any());
