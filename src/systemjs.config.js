@@ -19,7 +19,8 @@ paths: {
             'rxjs': 'npm:rxjs',
             '@ngx-translate/core': 'npm:@ngx-translate/core/core.umd.js',
             '@ngx-translate/http-loader': 'npm:@ngx-translate/http-loader/http-loader.umd.js',
-            'hammerjs': 'npm:hammerjs/hammer.js'
+            'hammerjs': 'npm:hammerjs/hammer.js',
+            'angular2-cookie': 'npm:angular2-cookie'
         },
         defaultExtension: 'ts',
         packages: {
@@ -29,6 +30,9 @@ paths: {
             },
             rxjs: {
                 defaultExtension: 'js'
+            },
+            'angular2-cookie': {
+                main: 'core.js'
             }
         },
     });
